@@ -1,8 +1,8 @@
 local Nyx = {}
 
-Nyx.optionEnabled = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Включить", false)
+Nyx.optionEnabled = Menu.AddOptionBool({"Hero Specific","Nyx Assassin"}, "Включить", false)
 --картинка
-Nyx.optionKey = Menu.AddKeyOption({"Hero Specific", "Nyx Assassin"}, "Кнопка комбо", Enum.ButtinCode.KEY_V)
+Nyx.optionKey = Menu.AddKeyOption({"Hero Specific","Nyx Assassin"}, "Кнопка комбо", Enum.ButtinCode.KEY_V)
 
 Nyx.Items = {"Hero Specific", "Nyx Assassin", "Артефакты в комбо"}
 Nyx.Skill = {"Hero Specific", "Nyx Assassin", "Скилы в комбо"}
@@ -104,25 +104,8 @@ function Nyx.Combo(myHero, enemy)
 		  if shiva and Ability.IsReady(shiva, myMana) and Menu.IsEnabled(Nyx.Shiva) then
             Ability.CastNoTarget(shiva)
         end
-         if Nyx.SleepReady(0.3, sleep_after_attack) then
-            Player.AttackTarget(Players.GetLocal(), myHero, enemy, false)
-            sleep_after_attack = os.clock()
-            Nyx.lastTick = os.clock()
-            sleep_after_cast = os.clock()
-            return
-        end
     end
 end
-end
-
-
-
-function Nyx.SleepReady(sleep, lastTick)
-    if (os.clock() - Nyx.lastTick) >= sleep then
-		return true
-    end
-    
-	return false
 end
 
 
