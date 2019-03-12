@@ -78,7 +78,7 @@ function Nyx.Combo(myHero, enemy)
 	 local myMana = NPC.GetMana(myHero)
 	 
 	 
-	 if Menu.IsKeyDown(Nyx.optionKey) and Entity.GetHelath(enemy) > 0 then  
+	 if Menu.IsKeyDown(Nyx.optionKey) and Entity.GetHealth(enemy) > 0 then  
 	     if not NPC.IsEntityInRange(myHero, enemy, 1500) then return end
 		 local enemy_origun = Entity.GetAbsOrigin(enemy)
 		 local curdor_pos = Input.GetWorldCursorPos()
@@ -86,25 +86,24 @@ function Nyx.Combo(myHero, enemy)
 	     
 		 if impale and Ability.IsCastable(impale, myMana) and Menu.IsEnabled(Nyx.Impale) then
 		     Ability.CastPosition(impale, enemy_origin)
-			 Nyx.lastTick = os.clock()
 	     end
 			 
 		 if urn and Ability.IsReady(urn) and Menu.IsEnabled(Nyx.Urn) then
-            Ability.CastTarget(urn, enemy)
-         end
+                      Ability.CastTarget(urn, enemy)
+             end
 		 
 		 if blade and Ability.IsReady(blade, myMana) and Menu.IsEnabled(Nyx.Blade) then
-            Ability.CastTarget(blade, enemy)
-         end
+                      Ability.CastTarget(blade, enemy)
+             end
 		 
 		 if dagon and Ability.IsReady(dagon, myMana) and Menu.IsEnabled(Nyx.Dagon) then
 		     Ability.CastTarget(dagon, enemy)
-		 end
+             end
 		 
 		  if shiva and Ability.IsReady(shiva, myMana) and Menu.IsEnabled(Nyx.Shiva) then
-            Ability.CastNoTarget(shiva)
+                     Ability.CastNoTarget(shiva)
+             end
         end
-    end
 end
 end
 
