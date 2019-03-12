@@ -1,29 +1,15 @@
 local Nyx = {}
 
 Nyx.Enabled = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Enabled", false)
-Nyx.Key = Menu.AddKeyOption({"Hero Specific", "Nyx Assassin"}, "Кнопка комбо", Enum.ButtonCode.KEY_V)
-Nyx.Items = {"Hero Specific", "Nyx Assassin", "Артефакты в комбо"}
-Nyx.Skill = {"Hero Specific", "Nyx Assassin", "Скилы в комбо"}
-
-Nyx.Dagon = Menu.AddOptionBool(Nyx.Items, "Dagon", false)
--- картинка
-Nyx.Urn = Menu.AddOptionBool(Nyx.Items, "Urn or Spirit Vessel", false)
---картинка
-Nyx.EtherealBlade = Menu.AddOptionBool(Nyx.Items, "Ethereal Blade", false)
---картинка
-Nyx.ShivaGuard = Menu.AddOptionBool(Nyx.Items, "Shivas Guard", false)
---картинка
-
-Nyx.Impale = Menu.AddOptionBool(Nyx.Skill, "Impale")
---картинка
-Nyx.ManaBurn = Menu.AddOptionBool(Nyx.Skill, "Mana Burn")
---картинка
-Nyx.SpikedCarapace = Menu.AddOptionBool(Nyx.Skill, "Spiked Carapace")
---картинка
-Nyx.Vendetta = Menu.AddOptionBool(Nyx.Skill, "Vendetta")
---картинка
-
-local font = Renderer.LoadFont("Tahoma", 20, Enum.FontWeight.EXTRABOLD)
+Nyx.Key = Menu.AddKeyOption({"Hero Specific", "Nyx Assassin"}, "Combo Key", Enum.ButtonCode.KEY_V)
+Nyx.Dagon = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Dagon", false)
+Nyx.Urn = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Urn or Spirit Vessel", false)
+Nyx.EtherealBlade = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Ethereal Blade", false)
+Nyx.ShivaGuard = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Shivas Guard", false)
+Nyx.Impale = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Impale")
+Nyx.ManaBurn = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Mana Burn")
+Nyx.SpikedCarapace = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Spiked Carapace")
+Nyx.Vendetta = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Vendetta")
 
 local enemy = nil
 local myHero = nil
@@ -102,29 +88,15 @@ function Nyx.Combo(myHero, enemy)
 		  if shiva and Ability.IsReady(shiva, myMana) and Menu.IsEnabled(Nyx.Shiva) then
             Ability.CastNoTarget(shiva)
         end
-         if Nyx.SleepReady(0.3, sleep_after_attack) then
-            Player.AttackTarget(Players.GetLocal(), myHero, enemy, false)
-            sleep_after_attack = os.clock()
-            Nyx.lastTick = os.clock()
-            sleep_after_cast = os.clock()
-            return
-        end
     end
 end
-end
 
-
-
-function Nyx.SleepReady(sleep, lastTick)
-    if (os.clock() - Nyx.lastTick) >= sleep then
-		return true
-    end
-    
-	return false
-end
 
 
 return Nyx
+
+
+
 
 
 
