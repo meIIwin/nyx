@@ -1,10 +1,10 @@
 local Nyx = {}
 
-Nyx.optionEnabled = Menu.AddOptionBool({"Hero Specific","Nyx"}, "Включить", false)
-Nyx.optionKey = Menu.AddKeyOption({"Hero Specific","Nyx"}, "Кнопка комбо", Enum.ButtinCode.KEY_V)
+Nyx.optionEnabled = Menu.AddOptionBool({"Hero Specific","Nyx"}, "Enable", false)
+Nyx.optionKey = Menu.AddKeyOption({"Hero Specific","Nyx"}, "Combo Key", Enum.ButtinCode.KEY_V)
 
-Nyx.Items = Menu.AddOptionBool{"Hero Specific", "Nyx Assassin"} "Артефакты в комбо", false)
-Nyx.Skill = Menu.AddOptionBool{"Hero Specific", "Nyx Assassin"} "Скилы в комбо". false)
+Nyx.Items = Menu.AddOptionBool{"Hero Specific", "Nyx Assassin"} "Artefact", false)
+Nyx.Skill = Menu.AddOptionBool{"Hero Specific", "Nyx Assassin"} "skil". false)
 
 Nyx.Dagon = Menu.AddOptionBool(Nyx.Items, "Dagon", false)
 Nyx.Urn = Menu.AddOptionBool(Nyx.Items, "Urn or Spirit Vessel", false)
