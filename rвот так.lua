@@ -54,7 +54,7 @@ function Nyx.OnUpdate()
 	    if not Entity.IsAlive(myHero) or NPC.ISstunned(myHero) or NPC.IsSilenced(myHero) then return end
 		if Menu.IsKeyDown(Nyx.optionKey) then
 		         enemy = Input.GetNearestHeroToCursor(Entity.GetTeamNum(myHero), Enum.TeamType.TEAM_ENEMY)
-	             if enemy and enemy~= 0 then
+	             if enemy and enemy ~= 0 then
 				         Nyx.Combo(myHero, enemy)
 						 return
 			     end
