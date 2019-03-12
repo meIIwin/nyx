@@ -1,29 +1,20 @@
 local Nyx = {}
 
 Nyx.optionEnabled = Menu.AddOptionBool({"Hero Specific","Nyx"}, "Включить", false)
---картинка
 Nyx.optionKey = Menu.AddKeyOption({"Hero Specific","Nyx"}, "Кнопка комбо", Enum.ButtinCode.KEY_V)
 
 Nyx.Items = {"Hero Specific", "Nyx Assassin", "Артефакты в комбо"}
 Nyx.Skill = {"Hero Specific", "Nyx Assassin", "Скилы в комбо"}
 
 Nyx.Dagon = Menu.AddOptionBool(Nyx.Items, "Dagon", false)
--- картинка
 Nyx.Urn = Menu.AddOptionBool(Nyx.Items, "Urn or Spirit Vessel", false)
---картинка
 Nyx.EtherealBlade = Menu.AddOptionBool(Nyx.Items, "Ethereal Blade", false)
---картинка
 Nyx.ShivaGuard = Menu.AddOptionBool(Nyx.Items, "Shivas Guard", false)
---картинка
 
 Nyx.Impale = Menu.AddOptionBool(Nyx.Skill, "Impale")
---картинка
 Nyx.ManaBurn = Menu.AddOptionBool(Nyx.Skill, "Mana Burn")
---картинка
 Nyx.SpikedCarapace = Menu.AddOptionBool(Nyx.Skill, "Spiked Carapace")
---картинка
 Nyx.Vendetta = Menu.AddOptionBool(Nyx.Skill, "Vendetta")
---картинка
 
 local font = Renderer.LoadFont("Tahoma", 20, Enum.FontWeight.EXTRABOLD)
 
