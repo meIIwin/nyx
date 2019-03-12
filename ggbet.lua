@@ -1,9 +1,7 @@
 local Nyx = {}
 
-Nyx.optionEnabled = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Включить", false)
---картинка
-Nyx.optionKey = Menu.AddKeyOption({"Hero Specific", "Nyx Assassin"}, "Кнопка комбо", Enum.ButtinCode.KEY_V)
-
+Nyx.Enabled = Menu.AddOptionBool({"Hero Specific", "Nyx Assassin"}, "Enabled", false)
+Nyx.Key = Menu.AddKeyOption({"Hero Specific", "Nyx Assassin"}, "Кнопка комбо", Enum.ButtonCode.KEY_V)
 Nyx.Items = {"Hero Specific", "Nyx Assassin", "Артефакты в комбо"}
 Nyx.Skill = {"Hero Specific", "Nyx Assassin", "Скилы в комбо"}
 
@@ -48,11 +46,11 @@ local sleep_after_attack = 0
 
 
 function Nyx.OnUpdate()
-    if not Menu.IsEnabled(Nyx.optionEnabled) or not Engine.IsInGame() or not Heroes.GetLocal() then return end
+    if not Menu.IsEnabled(Nyx.Enabled) or not Engine.IsInGame() or not Heroes.GetLocal() then return end
 	    myHero = Heroes.GetLocal()
 		if NPC.GetUnitName(myHero) ~= "npc_dota_hero_nyx_assassin" then return end
 	    if not Entity.IsAlive(myHero) or NPC.ISstunned(myHero) or NPC.IsSilenced(myHero) then return end
-		if Menu.IsKeyDown(Nyx.optionKey) then
+		if Menu.IsKeyDown(Nyx.Key) then
 		         enemy = Input.GetNearestHeroToCursor(Entity.GetTeamNum(myHero), Enum.TeamType.TEAM_ENEMY)
 	             if enemy and enemy~= 0 then
 				         Nyx.Combo(myHero, enemy)
@@ -78,7 +76,7 @@ function Nyx.Combo(myHero, enemy)
 	 local myMana = NPC.GetMana(myHero)
 	 
 	 
-	 if Menu.IsKeyDown(Nyx.optionKey) and Entity.GetHealth(enemy) > 0 then  
+	 if Menu.IsKeyDown(Nyx.Key) and Entity.GetHealth(enemy) > 0 then  
 	     if not NPC.IsEntityInRange(myHero, enemy, 1500) then return end
 		 local enemy_origun = Entity.GetAbsOrigin(enemy)
 		 local curdor_pos = Input.GetWorldCursorPos()
